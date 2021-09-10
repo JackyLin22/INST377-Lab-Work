@@ -1,40 +1,71 @@
-YOUR NAME Lab 2: Intro to HTML
+<html lang="en">
+<head>
+    <meta charset='UTF-8'/>
+    <title>Jacky Lin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">Jacky Lin Lab 2: CSS Selectors</h1>
+        
+        <nav> <a href="selectors.html">Selectors</a> <a href="index.html">Main Page</a> </nav>
+        
+        <h2>First, the basics.</h2>
+        <p>You need the following to build your website.</p>
 
-Selectors
-Main Page
+        <div class="section_1">
+            <ul>
+                <li>HTML and CSS</li>
+                <li>Javascript</li>
+                <li>Node.js</li>
+                <li>And other web development frameworks</li>
+            </ul>
+    
+            <p>My top 5 favorite music albums.</p>
+            <ol>
+                <li>Happiness Begins by Jonas Brothers</li>
+                <li>V by Maroon 5</li>
+                <li>18 Months by Calvin Harris</li>
+                <li>Overexposed by Maroon 5</li>
+                <li>24K Magic by Bruno Mars</li>
+            </ol>
+        </div>
 
-First, the basics.
+        <div class="section_2">
+            <h2>Let's Try Some Inline Elements</h2>
 
-You need the following to build your website.
+            <p>Sometimes you want to <em>draw attention to something</em> in a line of text.</p> <br>
 
-HTML and CSS
-Javascript
-Node.js
-And other web development frameworks
+            <p>Sometimes you want to <strong>strongly emphasize something</strong> in the text.</p> <br>
 
-You should list your top 3 goals for the class below.
+            <p>Sometimes you want to <em><strong>do both.</strong></em></p> <br>
+        </div>
 
-Learn front-end web design
-Learn new programming languages
-Learn how to work with others in a technical space
-Learn popular web dev frameworks
+        <div class="section_3">
+        <h3 class="subtitle">Empty Elements</h3>
 
-Let's Try Some Inline Elements
+        Soft line breaks can't wrap anything.<br>
+        Neither can image tags, or hard lines.<br>
+        Add a hard line under here, and make sure you've used some soft line breaks to match your page to the sample.
+        <hr/>
+        </div>
 
-Sometimes you want to draw attention to something in a line of text.
-
-Sometimes you want to strongly emphasize something in the text.
-
-Sometimes you want to do both.
-
-Empty Elements
-
-Soft line breaks can't wrap anything. Neither can image tags, or hard lines.
-Add a hard line under here, and make sure you've used some soft line breaks to match your page to the sample.
-
-Images 
-
-Don't forget to use alt text on your images. It's important for accessibility.
-
-Include a hyperlink here to your github repository for class.
-If you want your repo to be private, be sure to invite Prof A as a "collaborator."
+        <div class="section_4">
+            <div class="text">
+                <h2 class="default">Mochi Images</h2>
+                <p>Alt text for the images are useful for accessibility.</p>
+            </div>
+            <div class="carousel">
+                <div class="slides">
+                    <img src="images/mochi.jpg" width = "75" alt="Happy face with a bubble">
+                    <img src="images/mochi.png" width = "75" alt="Happy face">
+                    <img src="images/mochi.svg" alt="Face with vectors">
+                    <img src="images/mochi.gif" width = "75" alt="Smiling and bouncing face"> 
+                </div>
+            </div>
+        </div>
+        <p><a href="https://github.com/JackyLin22/INST377-Lab-Work"> My github repository can be found here.</a></p> <br>
+        <p>If you want your repo to be private, be sure to invite Prof A as a "collaborator."</p>
+    </div>
+</body>
+</html>
