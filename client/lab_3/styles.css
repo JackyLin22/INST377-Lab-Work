@@ -10,16 +10,9 @@
   nav a {
     color: #5995DA;
   }
-  
-  /* Tablet Styles */
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
-    background-color: #F5CF8E; /* Yellow */
-  }
-  }
 
   .wrapper {
-    display:flex;
+    display: flex;
     flex-direction: column;
     font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
     justify-content: center;
