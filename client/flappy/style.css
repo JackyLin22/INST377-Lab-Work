@@ -36,7 +36,7 @@ body {
 }
 
 .sky {
-    background-color: blue;
+    background-image: url("fb-game-background.png");
     width: 500px;
     height: 580px;
     position: absolute;
