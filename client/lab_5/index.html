@@ -21,39 +21,36 @@
 
             <div class="columns is-vcentered">
                 <div class="column">
-                    <form class="box">
-                        <form action="/api">
-                            <div class="field">
-                                <label class="label">First Name</label>
-                                <div class="control">
-                                <input class="input" type="text" placeholder="">
-                                </div>
+                    <form class="box" action="/api">
+                        <div class="field">
+                            <label class="label">First Name</label>
+                            <div class="control">
+                            <input id="first-name" name="first-name" type="text">
                             </div>
+                        </div>
                         
-                            <div class="field">
-                                <label class="label">Food Preference</label>
-                                <div class="control">
-                                <input class="input" type="text" placeholder="">
-                                </div>
+                        <div class="field">
+                            <label class="label">Food Preference</label>
+                            <div class="control">
+                            <input id="food-preference" name="food-preference" type="text">
                             </div>
+                        </div>
 
-                            <div class="field">
-                                <label class="label">Veggie or Vegan?</label>
-                                <div class="control">
-                                    <label class="radio">
-                                        <input type="radio" name="question">
-                                        Yes
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="question">
-                                        No
-                                    </label>
-                                </div>
+                        <div class="field">
+                            <label class="label">Veggie or Vegan?</label>
+                            <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="question">
+                                Yes
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="question">
+                                No
+                            </label>
                             </div>
-
-                            <button class="button is-primary">Submit</button>
-                        </form>
+                        </div>
                         
+                        <button class="button is-primary">Submit</button>
                     </form>
                 </div>
                 <div class="column is-8">
