@@ -4,15 +4,17 @@ async function windowActions() {
   const cities = await request.json();
   const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('#search-result');
+  console.log(cities);
 
-  fetch(endpoint)
-    .then((blob) => blob.json())
-    .then((data) => cities.push(...data));
+  // fetch(endpoint)
+  //   .then((blob) => blob.json())
+  //   .then((data) => cities.push(...data));
 
   function findMatches(wordToMatch, cities) {
     return cities.filter((place) => {
+      console.log(place);
       const regex = new RegExp(wordToMatch, 'gi');
-      return place.city.match(regex) || place.state.match(regex);
+      return place.city.match(regex) || place.zip.match(regex);
     });
   }
 
