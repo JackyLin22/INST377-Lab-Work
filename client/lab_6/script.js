@@ -3,8 +3,7 @@ async function windowActions() {
   const request = await fetch(endpoint);
   const cities = await request.json();
   const searchInput = document.querySelector('.search');
-  const suggestions = document.querySelector('.suggestion');
-  document.querySelector('#search-result').innerHTML = '';
+  const suggestions = document.querySelector('#search-result');
 
   fetch(endpoint)
     .then((blob) => blob.json())
@@ -25,7 +24,7 @@ async function windowActions() {
     console.log('match val', event.value);
     const matchArray = findMatches(event.target.value, cities);
     const html = matchArray.map(
-      (search) => `<li>
+      (search) => `<li><span>
       ${search.name}
       <br>${search.category}
           <br>${search.address_line_1}
@@ -41,7 +40,7 @@ async function windowActions() {
   searchInput.addEventListener('keyup', (evt) => {
     if (searchInput.value === '' || searchInput.value === undefined) {
       suggestions.innerHTML = 0;
-      suggestions.innerHTML = 'You have found some results.';
+      suggestions.innerHTML = 'No results were found';
     } else {
       displayMatches(evt);
     }
