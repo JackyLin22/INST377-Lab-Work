@@ -1,7 +1,17 @@
 #mapid {
-     height: 180px; 
+     height: 400px; 
 }
 
-li {
-     list-style: none
-   }
+.restaurant {
+     list-style: none;
+     color: black;
+     margin-bottom: 1px;
+     font-weight: bold;
+}
+
+li:nth-child(odd) {
+     background-color:rgb(109, 223, 105);
+     margin-bottom: 10px;
+     margin-top: 10px;
+     border-radius: 10px;
+}

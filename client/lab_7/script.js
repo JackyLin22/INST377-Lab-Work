@@ -4,8 +4,9 @@ async function windowActions() {
   const cities = await request.json();
   const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('#search-result');
+  let storematchArray = [];
   console.log(cities);
-  const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  const mymap = L.map('mapid').setView([38.89, -77.04], 10);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -33,9 +34,10 @@ async function windowActions() {
 
   function displayMatches(event) {
     console.log('match val', event.value);
-    const matchArray = findMatches(event.target.value, cities);
+    let matchArray = findMatches(event.target.value, cities);
+    matchArray = matchArray.slice(0, 5);
     const html = matchArray.map(
-      (search) => `<li><span>
+      (search) => `<li><span class='restaurant'>
         ${search.name}
         <br>${search.category}
             <br>${search.address_line_1}
@@ -45,16 +47,52 @@ async function windowActions() {
     ).join('');
     suggestions.innerHTML = html;
     console.log('matches', matchArray);
+    storematchArray = matchArray;
   }
 
+  function reveal() {
+    map(storematchArray);
+  }
+
+  function control(e) {
+    if (e.keyCode === 13) {
+      reveal();
+    }
+  }
+
+  function map(matchArray) {
+    let count = 0;
+    mymap.eachLayer(Layer => {
+      if (Layer._latlng !== undefined) {
+        Layer.remove();
+      }
+    });
+    matchArray.forEach(element => {
+      const long = element.geocoded_column_1.coordinates[0];
+      const lat = element.geocoded_column_1.coordinates[1];
+      if (count === 0) {
+        mymap.panTo([lat, long]);
+      }
+      count++;
+      L.marker([lat, long]).addTo(mymap);
+    });
+    // L.marker([coordArray[0][1], coordArray[0][0]]).addTo(mymap);
+    // L.marker([coordArray[0][2], coordArray[0][1]]).addTo(mymap);
+  }
+
+  document.addEventListener('keyup', control);
+  Click = document.querySelector('.Submit');
+  Click.addEventListener('click', reveal);
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', (evt) => {
     if (searchInput.value === '' || searchInput.value === undefined) {
       suggestions.innerHTML = 0;
+      storematchArray = [];
       suggestions.innerHTML = 'No results were found';
     } else {
       displayMatches(evt);
     }
+    Click.addEventListener('click', reveal);
   });
 }
 
